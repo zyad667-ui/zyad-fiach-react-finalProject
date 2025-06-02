@@ -1,4 +1,5 @@
-import React from 'react';
+
+
 import newOrkImg from '../../../assets/nework.jpg';
 import bfImg from '../../../assets/bf.jpg';
 import chinatownImg from '../../../assets/chinatown.jpg';
@@ -7,7 +8,7 @@ const BlogSection = () => {
     const blogPosts = [
         {
             id: 1,
-            image: bfImg,
+            image: newOrkImg,
             title: "Black Friday Guide: Best Sales & Discount Codes",
             author: "fashi-theme Admin",
             date: "Dec 28, 2017",
@@ -15,7 +16,7 @@ const BlogSection = () => {
         },
         {
             id: 2,
-            image: newOrkImg,
+            image: bfImg,
             title: "The White Sneakers Nearly Every Fashion Girls Own",
             author: "fashi-theme Admin",
             date: "Dec 28, 2017",
@@ -62,7 +63,6 @@ const BlogSection = () => {
                     <p className="text-gray-600 mb-8 max-w-md mx-auto">
                         Restez connectés avec nous sur Instagram pour découvrir nos dernières collections et inspirations mode
                     </p>
-
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                         <div className="text-center">
                             <div className="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -73,7 +73,6 @@ const BlogSection = () => {
                             <h4 className="font-semibold text-gray-900 mb-2">Free Delivery Worldwide</h4>
                             <p className="text-sm text-gray-600">Minim veniam quis nostrud exercitation</p>
                         </div>
-
                         <div className="text-center">
                             <div className="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +82,6 @@ const BlogSection = () => {
                             <h4 className="font-semibold text-gray-900 mb-2">30 Days Return</h4>
                             <p className="text-sm text-gray-600">Simply return it within 30 days for an exchange</p>
                         </div>
-
                         <div className="text-center">
                             <div className="bg-gray-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,5 +97,4 @@ const BlogSection = () => {
         </section>
     );
 };
-
-export default BlogSection;
+export default BlogSection;import React from 'react';

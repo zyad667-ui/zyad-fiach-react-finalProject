@@ -23,7 +23,7 @@ export default function ProductsGrid() {
 
     return (
         <div className="products-container">
-            <h2>OUR PRODUCTS</h2>
+            <h2 style={{ color: '#b00000' }}>OUR PRODUCTS</h2>
             <div className="products-menu">
                 {categories.map((cat) => (
                     <span
@@ -43,12 +43,12 @@ export default function ProductsGrid() {
                             src={product.image}
                             alt={product.name}
                         />
-                        <button className="add-to-cart-btn">Ajouter au panier</button>
+                        <button className="add-to-cart-btn" style={{ background: '#b00000', color: '#fff' }}>Ajouter au panier</button>
                         <div className="product-info">
                             {product.sale && (
                                 <span className="product-sale-badge">Sale</span>
                             )}
-                            <div className="product-name">{product.name}</div>
+                            <div className="product-name" style={{ color: '#333' }}>{product.name}</div>
                             <div className="product-price">
                                 {product.sale ? (
                                     <>

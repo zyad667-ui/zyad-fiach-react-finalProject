@@ -4,7 +4,7 @@ import './CategorieSection.css';
 const categories = [
     {
         label: 'SUNGLASSES',
-        image: 'https://i.pinimg.com/736x/8f/77/a6/8f77a6f12b952ba03460ee5fb7c37451.jpg',
+        image: 'https://static.asos-services.com/images/products/asos-design/aviator-sunglasses/black/1.jpg',
         alt: 'Sunglasses',
     },
     {

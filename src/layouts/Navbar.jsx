@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <header className="w-full fixed top-0 left-0 z-50">
             {/* Topbar */}
-            <div className={`w-full bg-white border-b border-gray-200 transition-all duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-10'} flex items-center justify-end px-8`} style={{ minHeight: isScrolled ? 0 : 40 }}>
+            <div className={`w-full bg-white border-b border-gray-200 transition-all duration-300 ${isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100 h-10'} flex items-center justify-end px-8`} style={{minHeight: isScrolled ? 0 : 40}}>
                 <div className="flex items-center space-x-6 text-sm text-gray-600">
                     <span>fashe@example.com</span>
                     <select className="bg-transparent border-none outline-none cursor-pointer">
