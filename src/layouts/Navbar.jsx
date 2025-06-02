@@ -7,7 +7,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
-            setIsScrolled(scrollTop > 50); 
+            setIsScrolled(scrollTop > 50); // Change l'état après 50px de défilement
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -154,16 +154,13 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </button>
-                            <button className={`relative transition-colors ${isScrolled
+                            <button className={`transition-colors ${isScrolled
                                     ? 'text-gray-700 hover:text-red-500'
                                     : 'text-gray-700 hover:text-red-500'
                                 }`}>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.39.39-.39 1.024 0 1.414L6.414 17H19M7 13v4a2 2 0 002 2h8a2 2 0 002-2v-4M7 13H5.4" />
                                 </svg>
-                                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                                    2
-                                </span>
                             </button>
                         </div>
                     </div>
