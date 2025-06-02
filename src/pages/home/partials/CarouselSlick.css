@@ -1,46 +1,331 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .carousel-slide {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 100vh;
     overflow: hidden;
 }
 
 .carousel-image {
     width: 100%;
-    height: 500px;
+    height: 100vh;
     object-fit: cover;
-    filter: brightness(0.7);
+    filter: brightness(0.6);
+    transition: transform 0.3s ease;
 }
 
 .carousel-caption {
     position: absolute;
-    top: 40%;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fff;
-    text-align: left;
+    text-align: center;
+    z-index: 2;
+    max-width: 800px;
+    width: 90%;
 }
 
-.carousel-caption h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.carousel-caption h3 {
-    font-size: 1.5rem;
+.carousel-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out 0.3s forwards;
+}
+
+.carousel-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 4px;
+    line-height: 1.1;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideInUp 1s ease-out 0.6s forwards;
+    position: relative;
+}
+
+.carousel-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #fff;
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out 1.2s forwards;
+}
+
+.carousel-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out 0.9s forwards;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .carousel-btn {
-    background: #222;
+    background: transparent;
     color: #fff;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
+    border: 2px solid #fff;
+    padding: 15px 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
     cursor: pointer;
-    border-radius: 25px;
-    transition: background 0.3s;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    animation: slideInUp 0.8s ease-out 1.2s forwards, buttonPulse 2s ease-in-out 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.carousel-btn:hover::before {
+    left: 100%;
 }
 
 .carousel-btn:hover {
-    background: #e65540;
+    background: #fff;
+    color: #333;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Flèches de navigation personnalisées */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.carousel-arrow-prev {
+    left: 50px;
+}
+
+.carousel-arrow-next {
+    right: 50px;
+}
+
+/* Personnalisation des dots de slick */
+.slick-dots {
+    bottom: 50px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.8s forwards;
+}
+
+.slick-dots li {
+    margin: 0 8px;
+}
+
+.slick-dots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.5);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.slick-dots li button:before {
+    display: none;
+}
+
+.slick-dots li.slick-active button {
+    background: #fff;
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+.slick-dots li:hover button {
+    border-color: #fff;
+    background: rgba(255,255,255,0.5);
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation pour les nouvelles slides */
+.slick-slide .carousel-caption * {
+    opacity: 0;
+    animation: none;
+}
+
+.slick-active .carousel-caption .carousel-subtitle {
+    animation: slideInUp 0.8s ease-out 0.3s forwards;
+}
+
+.slick-active .carousel-caption .carousel-title {
+    animation: slideInUp 1s ease-out 0.6s forwards;
+}
+
+.slick-active .carousel-caption .carousel-title::after {
+    animation: slideInUp 0.6s ease-out 1.2s forwards;
+}
+
+.slick-active .carousel-caption .carousel-description {
+    animation: slideInUp 0.8s ease-out 0.9s forwards;
+}
+
+.slick-active .carousel-caption .carousel-btn {
+    animation: slideInUp 0.8s ease-out 1.2s forwards, buttonPulse 2s ease-in-out 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 70vh;
+    }
+    
+    .carousel-slide {
+        height: 70vh;
+    }
+    
+    .carousel-image {
+        height: 70vh;
+    }
+    
+    .carousel-caption {
+        max-width: 95%;
+    }
+    
+    .carousel-title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .carousel-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+    
+    .carousel-description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .carousel-btn {
+        padding: 12px 30px;
+        font-size: 0.8rem;
+    }
+    
+    .carousel-arrow {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .carousel-arrow-prev {
+        left: 20px;
+    }
+    
+    .carousel-arrow-next {
+        right: 20px;
+    }
+    
+    .slick-dots {
+        bottom: 30px;
+    }
 }
