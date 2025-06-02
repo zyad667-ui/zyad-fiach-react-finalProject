@@ -11,7 +11,7 @@ const slides = [
         button: "SHOP NOW",
     },
     {
-        image: "https://i.pinimg.com/736x/81/17/2a/81172a440369456f8a8008a4f802fb7b.jpg",
+        image: "https://i.pinimg.com/736x/17/9e/9e/179e9e2a8aa28f6f324f591b1ca45af6.jpg",
         title: "WOMEN COLLECTION",
         subtitle: "Summer Sale 2018",
         description: "Profitez de nos dernières tendances mode avec jusqu'à 50% de réduction sur toute la collection.",
