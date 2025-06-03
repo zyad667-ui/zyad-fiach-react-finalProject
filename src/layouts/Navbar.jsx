@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -76,11 +77,11 @@ const Navbar = () => {
                     {/* Right side icons */}
                     <div className="flex items-center space-x-3 sm:space-x-4">
                         {/* User icon - caché sur très petits écrans */}
-                        <button className="hidden sm:block text-gray-400 hover:text-red-500 transition-colors p-1">
+                        <Link to="/auth" className="hidden sm:block text-gray-400 hover:text-red-500 transition-colors p-1">
                             <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                        </button>
+                        </Link>
 
                         {/* Divider - caché sur très petits écrans */}
                         <div className="hidden sm:block w-px h-6 bg-gray-200" />
@@ -165,12 +166,12 @@ const Navbar = () => {
 
                         {/* Mobile user icon */}
                         <div className="border-t border-gray-100 pt-4 mt-4">
-                            <button className="flex items-center w-full px-4 py-3 text-base font-medium text-gray-700 hover:text-red-500 hover:bg-gray-50 rounded-md transition-colors">
+                            <Link to="/auth" className="flex items-center w-full px-4 py-3 text-base font-medium text-gray-700 hover:text-red-500 hover:bg-gray-50 rounded-md transition-colors">
                                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                                 Mon compte
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

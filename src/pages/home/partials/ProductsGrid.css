@@ -98,7 +98,7 @@
             letter-spacing: 1px;
             z-index: 2;
             transition: background 0.2s, transform 0.2s;
-            box-shadow: 0 4px 16px rgba(176,0,0,0.15);
+            box-shadow: 0 4px 16px rgba(176, 0, 0, 0.15);
         }
 
         .product-card:hover .add-to-cart-btn {
@@ -110,18 +110,22 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.35);
+            background: rgba(0, 0, 0, 0.35);
             z-index: 1;
             border-radius: 2px;
         }
 
-        @media (max-width: 1024px) {
-            .products-container {
-                width: 95%;
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
             }
+        }
+
+        @media (max-width: 900px) {
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 18px;
             }
         }
 
@@ -129,29 +133,60 @@
             .products-container {
                 width: 100%;
             }
+
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 14px;
+                gap: 12px;
             }
+
             .product-card {
-                padding: 6px;
+                padding: 4px;
             }
-            .product-image {
-                height: 160px;
-            }
+
             .product-image-wrapper {
-                height: 200px;
+                min-height: 220px;
+                height: 220px;
+                max-height: 320px;
             }
+
+            .product-image {
+                height: 100%;
+                min-height: 220px;
+                max-height: 320px;
+            }
+
             .add-to-cart-btn {
-                padding: 8px 22px;
-                font-size: 14px;
+                display: block !important;
+                position: absolute;
+                left: 50%;
+                top: 90%;
+                transform: translate(-50%, -50%);
+                margin: 0;
+                width: auto;
+                border-radius: 999px;
+                box-shadow: 0 2px 8px rgba(176, 0, 0, 0.10);
+                z-index: 2;
             }
+
             .product-image-wrapper::after {
-                display: none !important;
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.35);
+                z-index: 1;
+                border-radius: 2px;
+                display: block !important;
             }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -40%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
         }
