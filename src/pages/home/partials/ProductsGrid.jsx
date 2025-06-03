@@ -38,12 +38,14 @@ export default function ProductsGrid() {
             <div className="products-grid">
                 {filteredProducts.map((product, idx) => (
                     <div className="product-card" key={idx}>
-                        <img
-                            className="product-image"
-                            src={product.image}
-                            alt={product.name}
-                        />
-                        <button className="add-to-cart-btn" style={{ background: '#b00000', color: '#fff' }}>Ajouter au panier</button>
+                        <div className="product-image-wrapper">
+                            <img
+                                className="product-image"
+                                src={product.image}
+                                alt={product.name}
+                            />
+                            <button className="add-to-cart-btn">ADD TO CART</button>
+                        </div>
                         <div className="product-info">
                             {product.sale && (
                                 <span className="product-sale-badge">Sale</span>

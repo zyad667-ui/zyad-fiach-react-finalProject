@@ -4,7 +4,7 @@ const ContactPage = () => {
     return (
         <div className="bg-white min-h-screen pt-20">
             {/* Banner Section */}
-            <div className="w-full flex items-center justify-center relative mb-8" style={{ height: '120px', background: 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1500&q=80) center/cover' }}>
+            <div className="w-full flex items-center justify-center relative mb-8" style={{ height: '220px', background: 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1500&q=80) center/cover' }}>
                 <h2 className="text-4xl font-extrabold tracking-widest text-white drop-shadow-lg" style={{ letterSpacing: '0.15em' }}>CONTACT</h2>
             </div>
             {/* Contact Section */}
