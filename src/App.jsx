@@ -7,6 +7,7 @@ import ErrorPage from './pages/error/ErrorPage';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ShopPage from './pages/shop/ShopPage';
+import ContactPage from './pages/contact/contactPage';
 
 const App = () => {
   return (
@@ -17,11 +18,12 @@ const App = () => {
       <Routes>
         <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/Shop" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
 
 
- <Footer />
+      <Footer />
     </>
   );
 };
