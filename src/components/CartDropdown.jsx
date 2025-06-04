@@ -2,13 +2,13 @@ import React from "react";
 import { useCart } from "./CartContetxt";
 import { useNavigate } from "react-router-dom";
 
-export default function CartDropdown() {
+export default function CartDropdown({ onMouseEnter, onMouseLeave }) {
     const { cart, removeFromCart } = useCart();
     const navigate = useNavigate();
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
-        <div className="cart-dropdown">
+        <div className="cart-dropdown" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             <div className="cart-dropdown-header">Mon Panier</div>
             <div className="cart-dropdown-list">
                 {cart.length === 0 ? (

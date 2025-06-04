@@ -7,14 +7,23 @@ export default function CartIcon() {
     const [open, setOpen] = useState(false);
     const iconRef = useRef();
     const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const closeTimeout = useRef();
+
+    const handleMouseEnter = () => {
+        clearTimeout(closeTimeout.current);
+        setOpen(true);
+    };
+    const handleMouseLeave = () => {
+        closeTimeout.current = setTimeout(() => setOpen(false), 200);
+    };
 
     return (
         <div
             id="cart-icon"
             ref={iconRef}
             style={{ position: "relative", display: "inline-block" }}
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
         >
             <button className="text-gray-400 hover:text-red-500 transition-colors p-1" style={{ position: "relative" }}>
                 <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -39,7 +48,7 @@ export default function CartIcon() {
                     }}>{totalQty}</span>
                 )}
             </button>
-            {open && <CartDropdown />}
+            {open && <CartDropdown onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />}
         </div>
     );
 } 

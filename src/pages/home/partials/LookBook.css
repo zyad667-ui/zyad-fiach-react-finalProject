@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    background-attachment: fixed;
     margin: 40px 0;
 }
 

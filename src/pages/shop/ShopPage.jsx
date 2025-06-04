@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import {
     Dialog,
     DialogBackdrop,
@@ -15,6 +15,7 @@ import {
 } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { useCart } from '../../components/CartContetxt';
 
 const sortOptions = [
     { name: 'Most Popular', href: '#', current: true },
@@ -55,12 +56,12 @@ function classNames(...classes) {
 }
 
 const products = [
-    { name: 'Boxy T-Shirt with Roll Sleeve Detail', price: 20, sale: false, type: 'Totes', color: 'Blue', category: 'New Arrivals', size: '12L', image: 'https://i.pinimg.com/736x/fb/d0/c4/fbd0c44f2dc475fb3c874ebfef2f8531.jpg' },
-    { name: 'Boxy1 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Backpacks', color: 'White', category: 'Sale', size: '6L', image: 'https://i.pinimg.com/736x/03/49/3d/03493d3ba8ff8a9d866b33a9996e0a55.jpg' },
-    { name: 'Boxy2 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Travel Bags', color: 'Beige', category: 'Travel', size: '18L', image: 'https://i.pinimg.com/736x/3c/9b/74/3c9b74b52093d832bb32c3f73120efe5.jpg' },
-    { name: 'Boxy3 T-Shirt with Roll Sleeve', price: 20, sale: true, oldPrice: 30, type: 'Hip Bags', color: 'Brown', category: 'Organization', size: '2L', image: 'https://i.pinimg.com/736x/e8/5d/fd/e85dfde78ef8ed7acfdf723407e5f5c3.jpg' },
-    { name: 'Boxy4 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Laptop Sleeves', color: 'Green', category: 'Accessories', size: '40L', image: 'https://i.pinimg.com/736x/2a/fd/0c/2afd0c9420a75f61b30df345d57fe7fe.jpg' },
-    { name: 'Boxy5 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Totes', color: 'Purple', category: 'New Arrivals', size: '20L', image: 'https://i.pinimg.com/736x/db/79/a4/db79a4772523bb36ba41fb045803dcc2.jpg' },
+    { id: 1, name: 'Boxy T-Shirt with Roll Sleeve Detail', price: 20, sale: false, type: 'Totes', color: 'Blue', category: 'New Arrivals', size: '12L', image: 'https://i.pinimg.com/736x/fb/d0/c4/fbd0c44f2dc475fb3c874ebfef2f8531.jpg' },
+    { id: 2, name: 'Boxy1 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Backpacks', color: 'White', category: 'Sale', size: '6L', image: 'https://i.pinimg.com/736x/03/49/3d/03493d3ba8ff8a9d866b33a9996e0a55.jpg' },
+    { id: 3, name: 'Boxy2 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Travel Bags', color: 'Beige', category: 'Travel', size: '18L', image: 'https://i.pinimg.com/736x/3c/9b/74/3c9b74b52093d832bb32c3f73120efe5.jpg' },
+    { id: 4, name: 'Boxy3 T-Shirt with Roll Sleeve', price: 20, sale: true, oldPrice: 30, type: 'Hip Bags', color: 'Brown', category: 'Organization', size: '2L', image: 'https://i.pinimg.com/736x/e8/5d/fd/e85dfde78ef8ed7acfdf723407e5f5c3.jpg' },
+    { id: 5, name: 'Boxy4 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Laptop Sleeves', color: 'Green', category: 'Accessories', size: '40L', image: 'https://i.pinimg.com/736x/2a/fd/0c/2afd0c9420a75f61b30df345d57fe7fe.jpg' },
+    { id: 6, name: 'Boxy5 T-Shirt with Roll Sleeve', price: 20, sale: false, type: 'Totes', color: 'Purple', category: 'New Arrivals', size: '20L', image: 'https://i.pinimg.com/736x/db/79/a4/db79a4772523bb36ba41fb045803dcc2.jpg' },
 ];
 
 function FilterSidebar({ selectedType, setSelectedType, selectedFilters, setSelectedFilters, mobileOpen, setMobileOpen }) {
@@ -154,6 +155,7 @@ export default function ShopPage() {
     const [selectedType, setSelectedType] = useState(null);
     const [selectedFilters, setSelectedFilters] = useState({});
     const [mobileOpen, setMobileOpen] = useState(false);
+    const { addToCart } = useCart();
 
     // Filtering logic
     const filteredProducts = products.filter((product) => {
@@ -193,30 +195,43 @@ export default function ShopPage() {
                             {filteredProducts.length === 0 && (
                                 <div className="col-span-full text-center text-gray-400 py-12">No products found.</div>
                             )}
-                            {filteredProducts.map((product, idx) => (
-                                <div key={idx} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
-                                    <div className="relative">
-                                        <img src={product.image} alt={product.name} className="w-full h-80 object-cover" />
-                                        {product.sale && (
-                                            <span className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full">Sale</span>
-                                        )}
-                                        <button className="hidden group-hover:flex absolute inset-0 items-center justify-center bg-black/50 text-white font-semibold rounded transition-all">ADD TO CART</button>
-                                    </div>
-                                    <div className="p-4 flex-1 flex flex-col justify-between">
-                                        <div className="font-medium text-gray-800 mb-1">{product.name}</div>
-                                        <div className="text-gray-700 text-base">
-                                            {product.sale ? (
-                                                <>
-                                                    <span className="line-through text-gray-400 mr-2">${product.oldPrice}.00</span>
-                                                    <span className="text-red-500">${product.price}.00</span>
-                                                </>
-                                            ) : (
-                                                <span>${product.price}.00</span>
+                            {filteredProducts.map((product, idx) => {
+                                const imgRef = useRef();
+                                return (
+                                    <div key={idx} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col group transition-transform hover:-translate-y-1">
+                                        <div className="relative">
+                                            <img ref={imgRef} src={product.image} alt={product.name} className="w-full h-80 object-cover" />
+                                            {product.sale && (
+                                                <span className="absolute top-3 left-3 bg-red-500 text-white text-xs px-3 py-1 rounded-full">Sale</span>
                                             )}
                                         </div>
+                                        <div className="p-4 flex-1 flex flex-col justify-between">
+                                            <div className="font-medium text-gray-800 mb-1">{product.name}</div>
+                                            <div className="text-gray-700 text-base mb-4">
+                                                {product.sale ? (
+                                                    <>
+                                                        <span className="line-through text-gray-400 mr-2">${product.oldPrice}.00</span>
+                                                        <span className="text-red-500">${product.price}.00</span>
+                                                    </>
+                                                ) : (
+                                                    <span>${product.price}.00</span>
+                                                )}
+                                            </div>
+                                            <button
+                                                className="w-full mt-auto bg-black hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded transition-all"
+                                                onClick={() => {
+                                                    const imageRect = imgRef.current.getBoundingClientRect();
+                                                    const cartIcon = document.getElementById('cart-icon');
+                                                    const cartIconRect = cartIcon ? cartIcon.getBoundingClientRect() : null;
+                                                    addToCart(product, imageRect, cartIconRect);
+                                                }}
+                                            >
+                                                ADD TO CART
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </section>
                 </div>
