@@ -9,15 +9,12 @@ export default function FlyingImage() {
         if (!flyingImage) return;
         const img = imgRef.current;
         if (!img) return;
-        // Position initiale
         img.style.left = flyingImage.from.left + "px";
         img.style.top = flyingImage.from.top + "px";
         img.style.width = flyingImage.from.width + "px";
         img.style.height = flyingImage.from.height + "px";
         img.style.opacity = 1;
-        // Forcer le reflow
         void img.offsetWidth;
-        // Lancer l'animation
         img.style.transform = `translate(${flyingImage.to.left - flyingImage.from.left}px, ${flyingImage.to.top - flyingImage.from.top}px) scale(0.2)`;
         img.style.opacity = 0.2;
         const timer = setTimeout(() => {

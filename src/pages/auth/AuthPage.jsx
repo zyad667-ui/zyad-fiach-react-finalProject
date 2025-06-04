@@ -4,7 +4,7 @@ const AuthPage = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
             <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* New Customer */}
+               
                 <div className="bg-white border rounded p-8 flex flex-col justify-between">
                     <div>
                         <h2 className="text-4xl font-light text-black mb-2">New Customer</h2>
@@ -13,7 +13,7 @@ const AuthPage = () => {
                     </div>
                     <button className="mt-4 bg-neutral-800 text-white py-3 px-10 rounded-none text-base font-normal tracking-wide hover:bg-black transition">CONTINUE</button>
                 </div>
-                {/* Returning Customer */}
+                
                 <div className="bg-white border rounded p-8 flex flex-col justify-between">
                     <div>
                         <h2 className="text-4xl font-light text-black mb-2">Returning Customer</h2>

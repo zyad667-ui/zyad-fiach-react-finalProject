@@ -15,14 +15,14 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
-                    {/* Get In Touch */}
+                    
                     <div className="lg:col-span-2">
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">GET IN TOUCH</h3>
                         <p className="text-gray-600 text-sm leading-relaxed mb-6">
                             Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
                         </p>
 
-                        {/* Social Media Icons */}
+                     
                         <div className="flex space-x-4">
                             <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Categories */}
+                   
                     <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">CATEGORIES</h3>
                         <ul className="space-y-2">
@@ -67,7 +67,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Links */}
+                    
                     <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">LINKS</h3>
                         <ul className="space-y-2">
@@ -78,7 +78,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Help */}
+                   
                     <div>
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">HELP</h3>
                         <ul className="space-y-2">
@@ -90,7 +90,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Newsletter Section */}
+                
                 <div className="mt-12 pt-8 border-t border-gray-200">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                         <div className="mb-6 lg:mb-0">
@@ -116,7 +116,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Copyright */}
+                
                 <div className="mt-8 pt-8 border-t border-gray-200 text-center">
                     <p className="text-gray-500 text-sm">
                         Copyright Â© 2018 <span className="text-gray-700">MassTechnologist.com</span>. All rights reserved.

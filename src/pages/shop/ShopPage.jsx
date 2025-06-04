@@ -85,16 +85,16 @@ function FilterSidebar({ selectedType, setSelectedType, selectedFilters, setSele
 
     return (
         <>
-            {/* Mobile Filter Button */}
+           
             <button
                 className="md:hidden mb-4 px-4 py-2 bg-gray-900 text-white rounded w-full"
                 onClick={() => setMobileOpen(!mobileOpen)}
             >
                 {mobileOpen ? 'Hide Filters' : 'Show Filters'}
             </button>
-            {/* Sidebar (hidden on mobile unless open) */}
+            
             <aside className={`bg-white border-r border-gray-200 px-4 py-6 w-full max-w-xs md:block ${mobileOpen ? 'block' : 'hidden'} md:static md:w-full md:max-w-xs` }>
-                {/* Product Types */}
+                
                 <ul className="mb-6">
                     {productTypes.map((type) => (
                         <li key={type}>
@@ -111,7 +111,7 @@ function FilterSidebar({ selectedType, setSelectedType, selectedFilters, setSele
                     ))}
                 </ul>
                 <hr className="my-4" />
-                {/* Expandable Filter Sections */}
+               
                 {filterSections.map((section) => (
                     <div key={section.id} className="border-b border-gray-200 py-2">
                         <button
@@ -157,11 +157,11 @@ export default function ShopPage() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const { addToCart } = useCart();
 
-    // Filtering logic
+    
     const filteredProducts = products.filter((product) => {
-        // Type filter
+        
         if (selectedType && product.type !== selectedType) return false;
-        // Section filters
+        
         for (const section of filterSections) {
             const selected = selectedFilters[section.id];
             if (selected && selected.length > 0 && !selected.includes(product[section.id])) {
