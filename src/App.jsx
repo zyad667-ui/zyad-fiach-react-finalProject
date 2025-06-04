@@ -10,11 +10,12 @@ import ShopPage from './pages/shop/ShopPage';
 import ContactPage from './pages/contact/contactPage';
 import AboutPage from './pages/about/AboutPage';
 import AuthPage from './pages/auth/AuthPage';
+import FlyingImage from './components/FlyingImage';
 
 const App = () => {
   return (
     <>
-
+      <FlyingImage />
       <Navbar />
 
       <Routes>

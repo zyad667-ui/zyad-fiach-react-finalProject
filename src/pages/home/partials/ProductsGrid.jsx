@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ProductsGrid.css";
+import { useCart } from '../../../components/CartContetxt';
 
 const products = [
     { name: "Boxy7 T-Shirt with Roll Sleeve", price: 20, sale: false, category: "Best Seller", image: "https://i.pinimg.com/736x/fb/d0/c4/fbd0c44f2dc475fb3c874ebfef2f8531.jpg" },
@@ -15,11 +16,20 @@ const products = [
 const categories = ["All", "Best Seller", "Featured", "Home page"];
 
 export default function ProductsGrid() {
+    const { addToCart } = useCart();
     const [selectedCategory, setSelectedCategory] = useState("All");
 
     const filteredProducts = selectedCategory === "All"
         ? products
         : products.filter((product) => product.category === selectedCategory);
+
+    const handleAddToCart = (product, e) => {
+        const img = e.currentTarget.closest('.product-card').querySelector('img');
+        const imageRect = img.getBoundingClientRect();
+        const cartIcon = document.getElementById('cart-icon');
+        const cartIconRect = cartIcon.getBoundingClientRect();
+        addToCart(product, imageRect, cartIconRect);
+    };
 
     return (
         <div className="products-container">
@@ -44,7 +54,7 @@ export default function ProductsGrid() {
                                 src={product.image}
                                 alt={product.name}
                             />
-                            <button className="add-to-cart-btn">ADD TO CART</button>
+                            <button className="add-to-cart-btn" onClick={e => handleAddToCart(product, e)}>ADD TO CART</button>
                         </div>
                         <div className="product-info">
                             {product.sale && (
